@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 const TennisGame1 = require('../TennisGame1');
 
 test('Initial score is Love-All', () => {
