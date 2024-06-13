@@ -11,57 +11,34 @@ TennisGame1.prototype.wonPoint = function(playerName) {
     if (playerName === "player1")
         this.m_score1 += 1;
     else
-        this.m_score2 += 
+        this.m_score2 += 1;
 };
 
 TennisGame1.prototype.getScore = function() {
-    var score = "";
-    var tempScore = 0;
     if (this.m_score1 === this.m_score2) {
-        switch (this.m_score1) {
-            case 0:
-                score = "Love-All";
-                break;
-            case 1:
-                score = "Fifteen-All";
-                break;
-            case 2:
-                score = "Thirty-All";
-                break;
-            default:
-                score = "Deuce";
-                break;
-        }
+        return this.equalScore(;
     } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
-        var minusResult = this.m_score1 - this.m_score2;
-        if (minusResult === 1) score = "Advantage player1";
-        else if (minusResult === -1) score = "Advantage player2";
-        else if (minusResult >= 2) score = "Win for player1";
-        else score = "Win for player2";
+        return this.advantageOrWinScore();
     } else {
-        for (var i = 1; i < 3; i++) {
-            if (i === 1) tempScore = this.m_score1;
-            else {
-                score += "-";
-                tempScore = this.m_score2;
-            }
-            switch (tempScore) {
-                case 0:
-                    score += "Love";
-                    break;
-                case 1:
-                    score += "Fifteen";
-                    break;
-                case 2:
-                    score += "Thirty";
-                    break;
-                case 3:
-                    score += "Forty";
-                    break;
-            }
-        }
+        return this.regularScore();
     }
-    return score;
+};
+
+TennisGame1.prototype.equalScore = function() {
+    const scores = ["Love-All", "Fifteen-All", "Thirty-All", "Deuce"];
+    return scores[this.m_score1] || "Deuce";
+};
+
+TennisGame1.prototype.advantageOrWinScore = function() {
+    const minusResult = this.m_score1 - this.m_score2;
+    if (minusResult === 1) return "Advantage player1";
+    if (minusResult === -1) return "Advantage player2";
+    return minusResult >= 2 ? "Win for player1" : "Win for player2";
+};
+
+TennisGame1.prototype.regularScore = function() {
+    const scores = ["Love", "Fifteen", "Thirty", "Forty"];
+    return scores[this.m_score1] + "-" + scores[this.m_score2];
 };
 
 if (typeof window === "undefined") {
