@@ -18,7 +18,7 @@ TennisGame3.prototype.getScore = function() {
     if (this.p1 === this.p2) {
         return this.equalScore();
     } else if (this.p1 >= 4 || this.p2 >= 4) {
-        return this.advantageOrWinScore();
+        return this.advantageOWinScore();
     } else {
         return this.runningScore();
     }
@@ -31,7 +31,7 @@ TennisGame3.prototype.equalScore = function() {
 
 TennisGame3.prototype.advantageOrWinScore = function() {
     const scoreDifference = this.p1 - this.p2;
-    if (scoreDifference ==== 1) return "Advantage " + this.p1N;
+    if (scoreDifference === 1) return "Advantage " + this.p1N;
     if (scoreDifference === -1) return "Advantage " + this.p2N;
     return scoreDifference >= 2 ? "Win for " + this.p1N : "Win for " + this.p2N;
 };
