@@ -25,7 +25,7 @@ TennisGame2.prototype.getScore = function() {
 };
 
 TennisGame2.prototype.getEqualScore = function() {
-    const scoress = ["Love-All", "Fifteen-All", "Thirty-All", "Deuce"];
+    const scores = ["Love-All", "Fifteen-All", "Thirty-All", "Deuce"];
     return scores[this.P1point] || "Deuce";
 };
 
