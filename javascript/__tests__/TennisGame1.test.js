@@ -37,3 +37,17 @@ game.wonPoint('player2');
 game.wonPoint('player2');
 expect(game.getScore()).toBe('Deuce');
 });
+
+test('Player1 has advantage', () => {
+    const game = new TennisGame1('player1', 'player2');
+    game.wonPoint('player1');
+    game.wonPoint('player1');
+    game.wonPoint('player1');
+    game.wonPoint('player1');
+    game.wonPoint('player2');
+    game.wonPoint('player2');
+    game.wonPoint('player2');
+    game.wonPoint('player2');
+    game.wonPoint('player1');
+    expect(game.getScore()).toBe('Advantage player1');
+  });
