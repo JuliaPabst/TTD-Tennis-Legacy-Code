@@ -29,7 +29,7 @@ test('Both players score some points', () => {
 
 test('Score is Deuce', () => {
     const game = new TennisGame1('player1', 'player2');
-    ame.wonPoint('player1');
+    game.wonPoint('player1');
     game.wonPoint('player1');
     game.wonPoint('player1');
     game.wonPoint('player1');
