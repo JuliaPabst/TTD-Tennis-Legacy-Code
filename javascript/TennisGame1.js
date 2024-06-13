@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 var TennisGame1 = function(player1Name, player2Name) {
     this.m_score1 = 0;
     this.m_score2 = 0;
