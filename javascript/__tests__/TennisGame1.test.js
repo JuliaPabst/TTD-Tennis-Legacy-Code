@@ -10,3 +10,9 @@ test('Player1 scores a point', () => {
     game.wonPoint('player1');
     expect(game.getScore()).toBe('Fifteen-Love');
   });
+
+  test('Player2 scores a point', () => {
+    const game = new TennisGame1('player1', 'player2');
+    game.wonPoint('player2');
+    expect(game.getScore()).toBe('Love-Fifteen');
+  });
