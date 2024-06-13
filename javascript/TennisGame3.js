@@ -18,7 +18,7 @@ TennisGame3.prototype.getScore = function() {
     if (this.p1 === this.p2) {
         return this.equalScore();
     } else if (this.p1 >= 4 || this.p2 >= 4) {
-        return this.advantageOWinScore();
+        return this.advantageOrWinScore();
     } else {
         return this.runningScore();
     }
