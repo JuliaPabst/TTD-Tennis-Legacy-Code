@@ -11,8 +11,29 @@ test('Player1 scores a point', () => {
     expect(game.getScore()).toBe('Fifteen-Love');
   });
 
-  test('Player2 scores a point', () => {
-    const game = new TennisGame1('player1', 'player2');
-    game.wonPoint('player2');
-    expect(game.getScore()).toBe('Love-Fifteen');
-  });
+test('Player2 scores a point', () => {
+const game = new TennisGame1('player1', 'player2');
+game.wonPoint('player2');
+expect(game.getScore()).toBe('Love-Fifteen');
+});
+
+test('Both players score some points', () => {
+const game = new TennisGame1('player1', 'player2');
+game.wonPoint('player1');
+game.wonPoint('player2');
+game.wonPoint('player1');
+expect(game.getScore()).toBe('Thirty-Fifteen');
+});
+
+test('Score is Deuce', () => {
+const game = new TennisGame1('player1', 'player2');
+game.wonPoint('player1');
+game.wonPoint('player1');
+game.wonPoint('player1');
+game.wonPoint('player1');
+game.wonPoint('player2');
+game.wonPoint('player2');
+game.wonPoint('player2');
+game.wonPoint('player2');
+expect(game.getScore()).toBe('Deuce');
+});
