@@ -5,3 +5,8 @@ test('Initial score is Love-All', () => {
   expect(game.getScore()).toBe('Love-All');
 });
 
+test('Player1 scores a point', () => {
+    const game = new TennisGame1('player1', 'player2');
+    game.wonPoint('player1');
+    expect(game.getScore()).toBe('Fifteen-Love');
+  });
