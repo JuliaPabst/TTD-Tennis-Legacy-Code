@@ -16,7 +16,7 @@ TennisGame1.prototype.wonPoint = function(playerName) {
 
 TennisGame1.prototype.getScore = function() {
     if (this.m_score1 === this.m_score2) {
-        return this.equalScore(;
+        return this.equalScore();
     } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
         return this.advantageOrWinScore();
     } else {
